@@ -16,8 +16,8 @@
        
    post_build:
      commands:
-     - echo "Nao acredito que chegou ate aqui !!!!"
-     
+       - aws cloudformation --region $REGION describe-stacks --stack-name $STACK_NAME --query "Stacks[0].Outputs[?OutputKey=='Url'].OutputValue" --output text > elb.txt
+       - cat elb.txt 
  artifacts:
    files: 
      - elb.txt
