@@ -18,10 +18,7 @@
      commands:
        - IP=$(aws cloudformation --region $REGION describe-stacks --stack-name $STACK_NAME --query "Stacks[0].Outputs[?OutputKey=='Url'].OutputValue" --output text)
        - printf "http://$IP/api/users\nhttp://$IP/api/threads\nhttp://$IP/api/threads/1\nhttp://$IP/api/\nhttp://$IP/api/posts/by-user/2\n" > elb.txt
-       - echo "----------------------------------------------------"
        - cat elb.txt
-       - echo "----------------------------------------------------"
-       
  artifacts:
    files: 
      - elb.txt
