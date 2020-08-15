@@ -12,7 +12,7 @@
        
    build:
      commands:
-       - bash ./deploy.sh $STACK_NAME $REGION
+       - bash ./deploy.sh $REGION $STACK_NAME
        
    post_build:
      commands:
