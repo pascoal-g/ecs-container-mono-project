@@ -1,21 +1,23 @@
  version: 0.2
  phases:
- install: 
+ 
+   install: 
      runtime-versions:
-     docker: 18
+       docker: 18
      commands: 
-     - apt-get update -y
-     - apt-get install -y jq
-     - curl -L https://npmjs.org/install.sh | sh
-     - npm -v
- build:
-     commands: 
-     - bash ./deploy.sh $STACK_NAME $REGION
-
- post_build:
+       - apt-get update -y
+       - apt-get install -y jq
+       - curl -L https://npmjs.org/install.sh | sh
+       - npm -v
+       
+   build:
+     commands:
+       - bash ./deploy.sh $STACK_NAME $REGION
+       
+   post_build:
      commands:
      - echo "Nao acredito que chegou ate aqui !!!!"
      
  artifacts:
- files: 
+   files: 
      - elb.txt
